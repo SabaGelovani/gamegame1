@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci466df7g2m3i"]
+
+[ext_resource type="PackedScene" uid="uid://bc8nk3mu424yl" path="res://SkillNode.tscn" id="2_cqreb"]
+
+[sub_resource type="GDScript" id="GDScript_tomav"]
+script/source = "extends Node2D
+
+@onready var skill_nodes = []
+
+func _ready():
+	skill_nodes = get_children().filter(func(c): return c is SkillNode)
+
+	for skill in skill_nodes:
+		skill.connect(\"pressed\", Callable(self, \"_on_skill_pressed\"), [skill])
+
+func _on_skill_pressed(skill):
+	skill.set_level(skill.level + 1)
+	print(skill.name, \" level is now \", skill.level)
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_tomav")
+
+[node name="TextureButton" parent="." instance=ExtResource("2_cqreb")]
+
+[node name="TextureButton2" parent="." instance=ExtResource("2_cqreb")]
+
+[node name="TextureButton3" parent="." instance=ExtResource("2_cqreb")]
+
+[node name="TextureButton4" parent="." instance=ExtResource("2_cqreb")]

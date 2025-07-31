@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc8nk3mu424yl"]
+
+[ext_resource type="Script" path="res://skill_node.gd" id="1_1tcwi"]
+[ext_resource type="Texture2D" uid="uid://ccy4tqpadf6sf" path="res://player/5EicSM.png" id="1_iw04b"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_left = 286.0
+offset_top = 84.0
+offset_right = 820.0
+offset_bottom = 638.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("1_iw04b")
+script = ExtResource("1_1tcwi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 545.0
+offset_bottom = 549.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx1arlxqgfd70"]
+
+[ext_resource type="Script" path="res://skill_node.gd" id="1_no3wu"]
+
+[node name="SkillNode" type="Node2D"]
+script = ExtResource("1_no3wu")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 427.0
+offset_top = 315.0
+offset_right = 594.0
+offset_bottom = 376.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 457.0
+offset_top = 328.0
+offset_right = 564.0
+offset_bottom = 353.0
+text = "aaaaaaaaaaa"

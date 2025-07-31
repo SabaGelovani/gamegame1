@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://6kd6gjpagyab"]
+
+[ext_resource type="Script" path="res://war.gd" id="1_wabef"]
+[ext_resource type="Texture2D" uid="uid://ctujscy4fnuad" path="res://icon.svg" id="2_y10bb"]
+[ext_resource type="Texture2D" uid="uid://ccy4tqpadf6sf" path="res://player/5EicSM.png" id="3_4cpij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3lgm"]
+radius = 49.93
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l5pn"]
+radius = 48.7083
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vafn5"]
+radius = 49.9362
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wabef")
+
+[node name="Plane" type="Sprite2D" parent="."]
+position = Vector2(190, 215.5)
+scale = Vector2(1, 0.773438)
+texture = ExtResource("2_y10bb")
+
+[node name="Target1" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Target1"]
+position = Vector2(635.25, 95)
+scale = Vector2(0.231273, 0.176895)
+texture = ExtResource("3_4cpij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target1"]
+position = Vector2(635, 96)
+shape = SubResource("CircleShape2D_r3lgm")
+debug_color = Color(0.983961, 0, 0.348118, 0.42)
+
+[node name="Target2" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Target2"]
+position = Vector2(590, 417)
+scale = Vector2(0.231273, 0.176895)
+texture = ExtResource("3_4cpij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target2"]
+position = Vector2(590.5, 417.5)
+shape = SubResource("CircleShape2D_0l5pn")
+debug_color = Color(0.994219, 0, 0.225582, 0.42)
+
+[node name="Target3" type="Area2D" parent="."]
+position = Vector2(36, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="Target3"]
+position = Vector2(820, 168)
+scale = Vector2(0.231273, 0.176895)
+texture = ExtResource("3_4cpij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target3"]
+position = Vector2(820.75, 166.25)
+shape = SubResource("CircleShape2D_vafn5")
+debug_color = Color(0.989781, 0, 0.286363, 0.42)
+
+[connection signal="input_event" from="Target1" to="." method="_on_target_1_input_event"]
+[connection signal="input_event" from="Target2" to="." method="_on_target_2_input_event"]
+[connection signal="input_event" from="Target3" to="." method="_on_target_3_input_event"]

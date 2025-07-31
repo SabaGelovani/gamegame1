@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcjg3iynxfrbl"]
+
+[ext_resource type="Texture2D" uid="uid://ctujscy4fnuad" path="res://icon.svg" id="1_46bes"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_doxpb"]
+[ext_resource type="Texture2D" uid="uid://ccy4tqpadf6sf" path="res://player/5EicSM.png" id="2_io25l"]
+[ext_resource type="Script" path="res://coin_manager.gd" id="4_qekr7"]
+
+[node name="Node2D" type="PopupPanel"]
+visible = true
+script = ExtResource("1_doxpb")
+
+[node name="PointA" type="Sprite2D" parent="."]
+position = Vector2(254, 601)
+scale = Vector2(0.116105, 0.097473)
+texture = ExtResource("2_io25l")
+
+[node name="PointB" type="Sprite2D" parent="."]
+position = Vector2(843, 66)
+scale = Vector2(0.133895, 0.117329)
+texture = ExtResource("2_io25l")
+
+[node name="PointC" type="Sprite2D" parent="."]
+position = Vector2(257, 51)
+scale = Vector2(0.122659, 0.0911552)
+texture = ExtResource("2_io25l")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(574.5, 271)
+scale = Vector2(0.585938, 0.40625)
+texture = ExtResource("1_46bes")
+
+[node name="PointD" type="Sprite2D" parent="."]
+position = Vector2(778, 551)
+scale = Vector2(0.103933, 0.0812274)
+texture = ExtResource("2_io25l")
+
+[node name="PointE" type="Sprite2D" parent="."]
+position = Vector2(1071, 353)
+scale = Vector2(0.125468, 0.108303)
+texture = ExtResource("2_io25l")
+
+[node name="PointF" type="Sprite2D" parent="."]
+position = Vector2(52, 300)
+scale = Vector2(0.134831, 0.117328)
+texture = ExtResource("2_io25l")
+
+[node name="CoinManager" type="Node" parent="."]
+script = ExtResource("4_qekr7")
+
+[node name="CoinLabel" type="Label" parent="CoinManager"]
+offset_left = 485.0
+offset_top = 8.0
+offset_right = 583.0
+offset_bottom = 38.0
+text = "Coins: 100"
+
+[node name="FuelLabel" type="Label" parent="CoinManager"]
+offset_left = 577.0
+offset_top = 7.0
+offset_right = 671.0
+offset_bottom = 68.0
+text = "Fuel: 10
+"
+
+[node name="MoneyPopup" type="PopupPanel" parent="."]
+size = Vector2i(500, 300)
+visible = true
+
+[node name="PopupLabel" type="Label" parent="MoneyPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 296.0
+text = "You recived coins
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverPopup" type="PopupPanel" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="GameOverPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Node2D" type="Node2D" parent="."]

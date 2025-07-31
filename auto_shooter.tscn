@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://k4sg4c6mwglr"]
+
+[ext_resource type="Texture2D" uid="uid://ccy4tqpadf6sf" path="res://player/5EicSM.png" id="1_8mn0v"]
+[ext_resource type="Script" path="res://player.gd" id="2_3yt5b"]
+[ext_resource type="Texture2D" uid="uid://bcjf5161sgo0g" path="res://scenes/panel_1.png" id="3_2wevk"]
+[ext_resource type="Script" path="res://test_enemy.gd" id="3_rogwx"]
+
+[node name="AutoShooter" type="Node2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(500, 250)
+scale = Vector2(0.108614, 0.0794224)
+texture = ExtResource("1_8mn0v")
+offset = Vector2(1, 0)
+script = ExtResource("2_3yt5b")
+
+[node name="ShotTimer" type="Timer" parent="Player"]
+wait_time = 0.25
+
+[node name="BulletPool" type="Node2D" parent="."]
+
+[node name="TestEnemy" type="Sprite2D" parent="."]
+position = Vector2(591, 247)
+scale = Vector2(0.00455731, 0.00798611)
+texture = ExtResource("3_2wevk")
+script = ExtResource("3_rogwx")

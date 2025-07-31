@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci466df7g2m3i"]
+
+[ext_resource type="PackedScene" uid="uid://bc8nk3mu424yl" path="res://SkillNode.tscn" id="2_cqreb"]
+[ext_resource type="Texture2D" uid="uid://dt5d2qwpc8jnl" path="res://IvxTk.png" id="2_dqly1"]
+
+[sub_resource type="GDScript" id="GDScript_tomav"]
+script/source = "extends Node2D
+
+var SkillNode = preload(\"res://skill_node.gd\")
+
+@onready var return_button1 = $ReturnButton2
+@onready var skill_nodes := []
+var return_button: Button
+
+func _ready():
+	# ReturnButton-ის ძებნა სცენის შიგნით
+	return_button = find_child(\"ReturnButton2\", true, true)
+	if return_button:
+		return_button.pressed.connect(_on_return_button_pressed)
+	else:
+		print(\"ReturnButton2 not found!\")
+
+	if return_button:
+		return_button.pressed.connect(_on_return_button_pressed)
+	else:
+		print(\"ReturnButton2 not found!\")
+
+	# მოძებნე და დააკავშირე SkillNode-ები
+	skill_nodes = get_children().filter(func(c): return c is SkillNode)
+
+	for skill in skill_nodes:
+		skill.connect(\"pressed\", Callable(self, \"_on_skill_pressed\").bind(skill))
+
+func _on_skill_pressed(skill_node: SkillNode):
+	skill_node.level += 1
+	skill_node.update_ui()
+	print(skill_node.name, \" level is now \", skill_node.level)
+
+func _on_return_button_pressed():
+	get_tree().change_scene_to_file(\"res://MainMenu.tscn\")
+
+
+func _on_return_buton_2_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_tomav")
+
+[node name="TextureButton" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 493.0
+offset_top = 470.0
+offset_right = 1027.0
+offset_bottom = 1024.0
+
+[node name="TextureButton5" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 494.0
+offset_top = 307.0
+offset_right = 1028.0
+offset_bottom = 861.0
+
+[node name="TextureButton6" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 560.0
+offset_top = 53.0
+offset_right = 1094.0
+offset_bottom = 607.0
+
+[node name="TextureButton7" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 418.0
+offset_top = 51.0
+offset_right = 952.0
+offset_bottom = 605.0
+
+[node name="TextureButton8" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 212.0
+offset_top = 36.0
+offset_right = 746.0
+offset_bottom = 590.0
+
+[node name="TextureButton2" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 751.0
+offset_top = 29.0
+offset_right = 1285.0
+offset_bottom = 583.0
+
+[node name="TextureButton3" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 685.0
+offset_top = 202.0
+offset_right = 1219.0
+offset_bottom = 756.0
+
+[node name="TextureButton4" parent="." instance=ExtResource("2_cqreb")]
+top_level = true
+offset_left = 305.0
+offset_top = 205.0
+offset_right = 839.0
+offset_bottom = 759.0
+
+[node name="ReturnButton2" type="Button" parent="."]
+top_level = true
+offset_left = 1017.0
+offset_top = 27.0
+offset_right = 1131.0
+offset_bottom = 75.0
+
+[node name="IvxTk" type="Sprite2D" parent="."]
+position = Vector2(575, 329)
+scale = Vector2(1.87403, 1.375)
+texture = ExtResource("2_dqly1")
+
+[connection signal="pressed" from="ReturnButton2" to="." method="_on_return_buton_2_pressed"]

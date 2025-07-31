@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btx1teb645a1q"]
+
+[ext_resource type="Script" path="res://drone.gd" id="1_eurbb"]
+[ext_resource type="Texture2D" uid="uid://bfndtlh35w5fi" path="res://player/istockphoto-467534847-612x612.jpg" id="2_kiepm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnc6b"]
+size = Vector2(48, 29.75)
+
+[node name="Drone" type="Area2D"]
+script = ExtResource("1_eurbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.0784314, 0.0767263)
+texture = ExtResource("2_kiepm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.125)
+shape = SubResource("RectangleShape2D_dnc6b")

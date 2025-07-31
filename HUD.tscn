@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c23knbyhgwg8j"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_7rd5c"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7rd5c")
+
+[node name="CoinLabel" type="Label" parent="."]
+offset_left = 2.0
+offset_right = 162.0
+offset_bottom = 23.0
+text = "ქოინები:"
+metadata/_edit_use_anchors_ = true
+
+[node name="FuelLabel" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 210.0
+offset_bottom = 62.0
+text = "საწვავი:"
+metadata/_edit_use_anchors_ = true

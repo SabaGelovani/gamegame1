@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dce1q3mj7jsoh"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_q2jcs"]
+[ext_resource type="Texture2D" uid="uid://c12yf028kxsm1" path="res://scenes/bridgeeeeeeeee.png" id="2_bppmp"]
+[ext_resource type="PackedScene" uid="uid://cv20fxmqp4b1s" path="res://coin_manager.tscn" id="4_8cjks"]
+[ext_resource type="PackedScene" uid="uid://c23knbyhgwg8j" path="res://HUD.tscn" id="4_t3bre"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q2jcs")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 426.0
+offset_right = 858.0
+offset_bottom = 507.0
+
+[node name="Bridgeeeeeeeee" type="Sprite2D" parent="."]
+position = Vector2(574.25, 323.563)
+scale = Vector2(0.299349, 0.299479)
+texture = ExtResource("2_bppmp")
+
+[node name="HUD" parent="." instance=ExtResource("4_t3bre")]
+
+[node name="CoinManager" parent="." instance=ExtResource("4_8cjks")]
+
+[node name="SkillTreeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 441.0
+offset_right = 992.0
+offset_bottom = 510.0
+
+[node name="FightButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 435.0
+offset_right = 337.0
+offset_bottom = 512.0
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="FightButton" to="." method="_on_fight_button_pressed"]
